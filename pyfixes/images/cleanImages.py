@@ -7,7 +7,7 @@ images = GC.getTag('Images').split()
 deduplicated = []
 [deduplicated.append(image) for image in images if image not in deduplicated]
 newImages = [image for image in deduplicated if os.path.isfile(mediaDir + image)]
-newImages = newImages.sort()
+newImages.sort()
 
 if images != newImages:
     GC.setTag('Images', '\n'.join(newImages))

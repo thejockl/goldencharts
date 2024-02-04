@@ -14,12 +14,10 @@ def dateIndex(date):
 
 
 def main():
+    gcImages = GC.getTag('Images').split()
     m = GC.activityMetrics()
-    gcImages = m['Images'].split()
     gcStart = datetime.datetime.combine(m['date'], m['time'])
     gcEnd = gcStart + datetime.timedelta(seconds=m['Duration'])
-    print(gcStart)
-    print(gcEnd)
 
     d1 = gcStart
     d2 = gcEnd
@@ -61,11 +59,13 @@ def main():
         fileDateIndex = dateIndex(fileDate)
         if fileDateIndex >= startDateIndex and fileDateIndex <= endDateIndex and candidateFilename not in newImages:
             try:
-                print("Found image {} ({})".format(candidateFilename, candidateFile))
+                print("Found image {}".format(candidateFilename))
                 if not os.path.isfile(TARGET + os.sep + candidateFilename):
-                    print("File already exists, not copying")
                     shutil.copy2(candidateFile, TARGET)
-                newImages.append(candidateFilename)
+                else:
+                    print("File already exists, not copying")
+                if candidateFilename not in newImages:
+                    newImages.append(candidateFilename)
             except Exception as e:
                 print("Failed to copy file " + candidateFilename + ": " + e)
 

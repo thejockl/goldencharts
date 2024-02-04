@@ -28,8 +28,7 @@ histograms = dict()
 
 home = GC.athlete()['home']
 mediaDir = home + os.sep + 'media' + os.sep
-m = GC.activityMetrics()
-allFiles = [mediaDir + image for image in m['Images'].split() if os.path.isfile(mediaDir + image)]
+allFiles = [mediaDir + image for image in GC.getTag('Images').split() if os.path.isfile(mediaDir + image)]
 
 for file in allFiles:
     if file not in histograms.keys():

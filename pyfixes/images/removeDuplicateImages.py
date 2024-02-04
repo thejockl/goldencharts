@@ -54,6 +54,7 @@ for image in removeImages:
     os.remove(image)
 
 if len(removeImages) > 0:
+    newImageTag.sort()
     GC.setTag('Images', '\n'.join(newImageTag))
 end = time.time()
 print("Finished in {:.2f} seconds".format(end - start))

@@ -69,6 +69,7 @@ def main():
             except Exception as e:
                 print("Failed to copy file " + candidateFilename + ": " + e)
 
+    newImages.sort()
     if newImages != gcImages:
         GC.setTag('Images', '\n'.join(newImages))
     else:

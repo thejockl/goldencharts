@@ -12,7 +12,7 @@ from datetime import date, datetime, timedelta
 from collections import OrderedDict
 
 
-MAP_PROVIDER = "https://tiles.int.soschee.net/osm/{z}/{x}/{y}.png"
+MAP_PROVIDER = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 MAP_MAX_ZOOM = "17"
 MAP_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 TRACE_COLOR = "purple"
